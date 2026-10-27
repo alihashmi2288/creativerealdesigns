@@ -54,6 +54,8 @@ export default function Footer() {
               <li><Link href="/packages" prefetch={false} className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline">Packages & Pricing</Link></li>
               <li><Link href="/portfolio" prefetch={false} className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline">Case Studies</Link></li>
               <li><Link href="/contact" prefetch={false} className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline">Get in Touch</Link></li>
+              <li><Link href="/privacy-policy" prefetch={false} className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline">Privacy Policy</Link></li>
+              <li><Link href="/terms-and-conditions" prefetch={false} className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline">Terms &amp; Conditions</Link></li>
               <li><a href="/brand/brand-book.html" target="_blank" rel="noopener noreferrer" className="hover:text-[#ff7759] transition-colors focus-visible:outline-none focus-visible:underline flex items-center gap-1">Brand Kit &amp; Specs <span className="text-xs text-[#ff7759]">↗</span></a></li>
             </ul>
           </div>
@@ -86,6 +88,14 @@ export default function Footer() {
             <p suppressHydrationWarning>© {new Date().getFullYear()} Creative Realm Designs. All rights reserved.</p>
             <span className="hidden sm:inline" aria-hidden="true">•</span>
             <p>Engineered for Speed &amp; Conversions.</p>
+            <span className="hidden sm:inline" aria-hidden="true">•</span>
+            <Link href="/privacy-policy" prefetch={false} className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline">
+              Privacy Policy
+            </Link>
+            <span className="hidden sm:inline" aria-hidden="true">•</span>
+            <Link href="/terms-and-conditions" prefetch={false} className="hover:text-white transition-colors focus-visible:outline-none focus-visible:underline">
+              Terms &amp; Conditions
+            </Link>
             <span className="hidden sm:inline" aria-hidden="true">•</span>
             <a href="/llms.txt" className="hover:text-[#ff7759] transition-colors">llms.txt</a>
             <span className="hidden sm:inline" aria-hidden="true">•</span>
