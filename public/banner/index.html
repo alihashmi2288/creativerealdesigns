@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Realm Designs — Brand Banner Suite &amp; Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #111115;
+      --surface: #17171c;
+      --card: #1d1d24;
+      --card-border: #2c2c36;
+      --text: #ffffff;
+      --text-muted: #93939f;
+      --coral: #ff7759;
+      --coral-soft: #ffad9b;
+      --deep-green: #003c33;
+      --dark-navy: #071829;
+      --soft-stone: #eeece7;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #17171c 0%, #071829 60%, #003c33 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 60px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,119,89,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 119, 89, 0.12);
+      border: 1px solid rgba(255, 119, 89, 0.3);
+      color: var(--coral);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+
+    .header-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: var(--coral);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--coral);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+      margin-bottom: 12px;
+    }
+
+    h1 span { color: var(--coral); }
+
+    .header-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 800px;
+    }
+
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .stat-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    .stat-pill strong {
+      color: var(--coral);
+      margin-right: 6px;
+    }
+
+    .controls-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(17, 17, 21, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 0;
+      margin-bottom: 40px;
+    }
+
+    .controls-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--text);
+      border-color: var(--coral);
+    }
+
+    .filter-btn.active {
+      background: var(--coral);
+      border-color: var(--coral);
+      color: #17171c;
+      font-weight: 700;
+    }
+
+    .toggle-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .switch input { opacity: 0; width: 0; height: 0; }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--card);
+      border: 1px solid var(--card-border);
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      bottom: 3px;
+      background-color: var(--text-muted);
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--coral);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+      background-color: #17171c;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+      gap: 32px;
+    }
+
+    .banner-card {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .banner-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 119, 89, 0.4);
+    }
+
+    .banner-preview-wrapper {
+      background: #0d0d10;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 240px;
+      border-bottom: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-preview-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      display: block;
+      transition: opacity 0.2s ease;
+    }
+
+    .safe-zone-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      display: none;
+      box-sizing: border-box;
+    }
+
+    .show-safe-zones .safe-zone-overlay {
+      display: block;
+    }
+
+    .banner-meta {
+      padding: 20px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .banner-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .banner-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .banner-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      color: var(--coral);
+    }
+
+    .banner-specs {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .banner-desc {
+      font-size: 14px;
+      color: #b0b0bb;
+      margin-bottom: 20px;
+      line-height: 1.45;
+    }
+
+    .banner-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 9px 14px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--coral);
+      color: #17171c;
+      border: 1px solid var(--coral);
+    }
+
+    .btn-primary:hover {
+      background: var(--coral-soft);
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: #252530;
+      border-color: #3f3f4e;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      header { padding: 40px 20px; }
+      h1 { font-size: 32px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-badge">OFFICIAL PRODUCTION ASSETS</div>
+    <h1>Creative <span>Realm</span> Designs — Banner Suite</h1>
+    <p class="header-desc">
+      Production-ready multi-format creative banners engineered to exact platform dimensions, safe-zone specifications, and brand typography. Zero website code modified, original vector marks preserved.
+    </p>
+
+    <div class="stats-bar">
+      <div class="stat-pill"><strong>16</strong> Banner Variations</div>
+      <div class="stat-pill"><strong>SVG &amp; PNG</strong> Dual Formats</div>
+      <div class="stat-pill"><strong>100%</strong> Safe Zone Compliant</div>
+      <div class="stat-pill"><strong>&gt; 4.5:1</strong> Contrast Ratio</div>
+    </div>
+  </div>
+</header>
+
+<div class="controls-bar">
+  <div class="container controls-inner">
+    <div class="filter-group">
+      <button class="filter-btn active" data-filter="all">All Banners (16)</button>
+      <button class="filter-btn" data-filter="social">Social Media (8)</button>
+      <button class="filter-btn" data-filter="ads">Display Ads (4)</button>
+      <button class="filter-btn" data-filter="web">Web &amp; Email (2)</button>
+      <button class="filter-btn" data-filter="stories">Feed &amp; Stories (2)</button>
+    </div>
+
+    <div class="toggle-group">
+      <span>Safe Zone Overlay</span>
+      <label class="switch">
+        <input type="checkbox" id="safeZoneToggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+  <div class="grid" id="bannerGrid">
+
+    <!-- 1. Twitter Dark -->
+    <div class="banner-card" data-category="social">
+      <div class="banner-preview-wrapper">
+        <img src="twitter-header-dark-1500x500.png" alt="Twitter Header Dark" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Twitter / X Header (Dark)</h2>
+            <span class="banner-tag">Social</span>
+          </div>
+          <div class="banner-specs">
+            <span>1500 × 500 px</span>
+            <span>3:1 Aspect</span>
+            <span>Avatar Safe Left</span>
+          </div>
+          <p class="banner-desc">Enterprise dark mode with deep green mesh wash, coral spark accents, and verified speed metric chips. Clear of the bottom-left avatar overlay.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="twitter-header-dark-1500x500.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="twitter-header-dark-1500x500.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Twitter Light -->
+    <div class="banner-card" data-category="social">
+      <div class="banner-preview-wrapper">
+        <img src="twitter-header-light-1500x500.png" alt="Twitter Header Light" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Twitter / X Header (Editorial Light)</h2>
+            <span class="banner-tag">Social</span>
+          </div>
+          <div class="banner-specs">
+            <span>1500 × 500 px</span>
+            <span>3:1 Aspect</span>
+            <span>Minimalist</span>
+          </div>
+          <p class="banner-desc">Architectural editorial layout on stark white canvas with subtle hairline grid lines and high-contrast typography.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="twitter-header-light-1500x500.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="twitter-header-light-1500x500.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3A. LinkedIn Personal (The Clean Master Flagship) -->
+    <div class="banner-card" data-category="social">
+      <div class="banner-preview-wrapper">
+        <img src="linkedin-clean-dark-1584x396.png" alt="LinkedIn Clean Master Dark Banner" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">LinkedIn Clean Flagship (Master)</h2>
+            <span class="banner-tag">Master Spec</span>
+          </div>
+          <div class="banner-specs">
+            <span>1584 × 396 px</span>
+            <span>4:1 Aspect</span>
+            <span>Zero-Merging Architecture</span>
+          </div>
+          <p class="banner-desc">Engineered for executive profiles and agency leads. Right-shifted typography clears the circular profile photo with tech stack badges.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="linkedin-clean-dark-1584x396.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="linkedin-clean-dark-1584x396.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3B. LinkedIn Personal (Floating Minimalist) -->
+    <div class="banner-card" data-category="social">
+      <div class="banner-preview-wrapper">
+        <img src="linkedin-clean-floating-1584x396.png" alt="LinkedIn Floating Minimalist Banner" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">LinkedIn Clean Floating (Boundary-Free)</h2>
+            <span class="banner-tag">Minimalist</span>
+          </div>
+          <div class="banner-specs">
+            <span>1584 × 396 px</span>
+            <span>4:1 Aspect</span>
+            <span>Open Layout</span>
+          </div>
+          <p class="banner-desc">Pure floating layout with architectural vertical divider and generous negative space between copy and brand lockup.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="linkedin-clean-floating-1584x396.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="linkedin-clean-floating-1584x396.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3B. LinkedIn Personal (Option 2: Modern High-Performance Glass & 3D Depth) -->
+    <div class="banner-card" data-category="social">
+      <div class="banner-preview-wrapper">
+        <img src="linkedin-personal-monolith-1584x396.png" alt="LinkedIn Personal Monolith Banner" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">LinkedIn Monolith Glass &amp; 3D (Option 2)</h2>
+            <span class="banner-tag">3D Depth</span>
+          </div>
+          <div class="banner-specs">
+            <span>1584 × 396 px</span>
+            <span>4:1 Aspect</span>
+            <span>Glassmorphism</span>
+          </div>
+          <p class="banner-desc">Modern glassmorphism cards layered over 3D obsidian monolith textures with coral caustics. Guaranteed WCAG AAA text contrast.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="linkedin-personal-monolith-1584x396.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="linkedin-personal-monolith-1584x396.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3C. LinkedIn Personal (Option 3: Kinetic Studio Editorial) -->
+    <div class="banner-card" data-category="social">
+      <div class="banner-preview-wrapper">
+        <img src="linkedin-personal-editorial-1584x396.png" alt="LinkedIn Personal Editorial Banner" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">LinkedIn Kinetic Editorial (Option 3)</h2>
+            <span class="banner-tag">Editorial</span>
+          </div>
+          <div class="banner-specs">
+            <span>1584 × 396 px</span>
+            <span>4:1 Aspect</span>
+            <span>Metric Pillars</span>
+          </div>
+          <p class="banner-desc">Stark high-contrast editorial layout with three dedicated metric pillars (&lt;800ms CWV, 100% IP, $0/mo fees) and clean brand framing.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="linkedin-personal-editorial-1584x396.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="linkedin-personal-editorial-1584x396.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. LinkedIn Company -->
+    <div class="banner-card" data-category="social">
+      <div class="banner-preview-wrapper">
+        <img src="linkedin-company-1128x191.png" alt="LinkedIn Company Banner" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">LinkedIn Company Cover (3-Zone Optimized)</h2>
+            <span class="banner-tag">Company</span>
+          </div>
+          <div class="banner-specs">
+            <span>1128 × 191 px</span>
+            <span>~6:1 Aspect</span>
+            <span>Zero-Overlap Fix</span>
+          </div>
+          <p class="banner-desc">Ultra-wide panoramic company cover banner. Centers branding and speed guarantees to avoid the company square avatar cutout.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="linkedin-company-1128x191.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="linkedin-company-1128x191.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Facebook Cover -->
+    <div class="banner-card" data-category="social">
+      <div class="banner-preview-wrapper">
+        <img src="facebook-cover-820x312.png" alt="Facebook Cover" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Facebook Page Cover</h2>
+            <span class="banner-tag">Social</span>
+          </div>
+          <div class="banner-specs">
+            <span>820 × 312 px</span>
+            <span>~2.6:1 Aspect</span>
+            <span>Mobile 640px Safe</span>
+          </div>
+          <p class="banner-desc">Universal Facebook page cover banner with critical content bound within the central 640px mobile safe zone.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="facebook-cover-820x312.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="facebook-cover-820x312.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. YouTube Channel Art -->
+    <div class="banner-card" data-category="social">
+      <div class="banner-preview-wrapper">
+        <img src="youtube-channel-art-2560x1440.png" alt="YouTube Channel Art" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">YouTube Channel Art</h2>
+            <span class="banner-tag">Social</span>
+          </div>
+          <div class="banner-specs">
+            <span>2560 × 1440 px</span>
+            <span>16:9 Aspect</span>
+            <span>1546×423 Safe Box</span>
+          </div>
+          <p class="banner-desc">High-resolution channel canvas with core studio commitments strictly contained within the universal TV, desktop, and mobile safe area.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="youtube-channel-art-2560x1440.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="youtube-channel-art-2560x1440.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Website Hero -->
+    <div class="banner-card" data-category="web">
+      <div class="banner-preview-wrapper">
+        <img src="website-hero-1920x600.png" alt="Website Hero Banner" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Full-Width Website Campaign Hero</h2>
+            <span class="banner-tag">Web &amp; Email</span>
+          </div>
+          <div class="banner-specs">
+            <span>1920 × 600 px</span>
+            <span>~3:1 Aspect</span>
+            <span>Marketing Banner</span>
+          </div>
+          <p class="banner-desc">Full-width promotional header for campaign landing pages, editorial showcases, and client pitch presentations.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="website-hero-1920x600.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="website-hero-1920x600.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Email Header -->
+    <div class="banner-card" data-category="web">
+      <div class="banner-preview-wrapper">
+        <img src="email-header-600x200.png" alt="Email Header" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Email Announcement Header</h2>
+            <span class="banner-tag">Web &amp; Email</span>
+          </div>
+          <div class="banner-specs">
+            <span>600 × 200 px</span>
+            <span>3:1 Aspect</span>
+            <span>Newsletter</span>
+          </div>
+          <p class="banner-desc">Ultra-clean, crisp vector email header with official logo and London &amp; New York studio dispatch status.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="email-header-600x200.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="email-header-600x200.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Ad Billboard -->
+    <div class="banner-card" data-category="ads">
+      <div class="banner-preview-wrapper">
+        <img src="ad-billboard-970x250.png" alt="Billboard Ad" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Google Ads: Billboard</h2>
+            <span class="banner-tag">Display Ads</span>
+          </div>
+          <div class="banner-specs">
+            <span>970 × 250 px</span>
+            <span>IAB Display</span>
+            <span>High Performer</span>
+          </div>
+          <p class="banner-desc">Desktop display banner featuring client conversion surge statistic (+42%) and high-contrast coral call-to-action button.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="ad-billboard-970x250.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="ad-billboard-970x250.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Ad Half Page -->
+    <div class="banner-card" data-category="ads">
+      <div class="banner-preview-wrapper">
+        <img src="ad-half-page-300x600.png" alt="Half Page Ad" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Google Ads: Half Page Skyscraper</h2>
+            <span class="banner-tag">Display Ads</span>
+          </div>
+          <div class="banner-specs">
+            <span>300 × 600 px</span>
+            <span>1:2 Vertical</span>
+            <span>Premium Display</span>
+          </div>
+          <p class="banner-desc">Vertical skyscraper layout with stacked value cards (sub-second speeds, zero monthly platform fees, and Google rank).</p>
+        </div>
+        <div class="banner-actions">
+          <a href="ad-half-page-300x600.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="ad-half-page-300x600.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Ad Leaderboard -->
+    <div class="banner-card" data-category="ads">
+      <div class="banner-preview-wrapper">
+        <img src="ad-leaderboard-728x90.png" alt="Leaderboard Ad" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Google Ads: Leaderboard</h2>
+            <span class="banner-tag">Display Ads</span>
+          </div>
+          <div class="banner-specs">
+            <span>728 × 90 px</span>
+            <span>8:1 Aspect</span>
+            <span>Header Bar</span>
+          </div>
+          <p class="banner-desc">Top-of-page advertising bar with clear logo lockup, micro-copy value proposition, and coral CTA button.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="ad-leaderboard-728x90.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="ad-leaderboard-728x90.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Ad Medium Rectangle -->
+    <div class="banner-card" data-category="ads">
+      <div class="banner-preview-wrapper">
+        <img src="ad-medium-rectangle-300x250.png" alt="Medium Rectangle Ad" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Google Ads: Medium Rectangle</h2>
+            <span class="banner-tag">Display Ads</span>
+          </div>
+          <div class="banner-specs">
+            <span>300 × 250 px</span>
+            <span>6:5 Aspect</span>
+            <span>Highest CTR</span>
+          </div>
+          <p class="banner-desc">Industry-standard inline content ad unit. High-contrast typography and clear benefit message.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="ad-medium-rectangle-300x250.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="ad-medium-rectangle-300x250.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Social Feed Square -->
+    <div class="banner-card" data-category="stories">
+      <div class="banner-preview-wrapper">
+        <img src="social-post-square-1080x1080.png" alt="Social Post Square" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Social Feed Square Post</h2>
+            <span class="banner-tag">Feed &amp; Stories</span>
+          </div>
+          <div class="banner-specs">
+            <span>1080 × 1080 px</span>
+            <span>1:1 Square</span>
+            <span>Feed Optimized</span>
+          </div>
+          <p class="banner-desc">High-impact social post presenting core agency guarantees and verified metrics (<0.8s mobile speed, +185% bookings, 100% IP ownership).</p>
+        </div>
+        <div class="banner-actions">
+          <a href="social-post-square-1080x1080.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="social-post-square-1080x1080.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. Social Story Vertical -->
+    <div class="banner-card" data-category="stories">
+      <div class="banner-preview-wrapper">
+        <img src="social-story-vertical-1080x1920.png" alt="Social Story Vertical" class="banner-preview-img" loading="lazy">
+      </div>
+      <div class="banner-meta">
+        <div>
+          <div class="banner-title-row">
+            <h2 class="banner-title">Instagram / Mobile Story</h2>
+            <span class="banner-tag">Feed &amp; Stories</span>
+          </div>
+          <div class="banner-specs">
+            <span>1080 × 1920 px</span>
+            <span>9:16 Vertical</span>
+            <span>Thumb Safe</span>
+          </div>
+          <p class="banner-desc">Full-screen vertical story designed with 200px top and 250px bottom UI clearance, 3 core studio pillars, and swipe-up prompt.</p>
+        </div>
+        <div class="banner-actions">
+          <a href="social-story-vertical-1080x1920.svg" download class="btn btn-secondary">Download SVG</a>
+          <a href="social-story-vertical-1080x1920.png" download class="btn btn-primary">Download PNG</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.banner-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Safe zone toggle
+  const toggle = document.getElementById('safeZoneToggle');
+  toggle.addEventListener('change', () => {
+    document.body.classList.toggle('show-safe-zones', toggle.checked);
+  });
+</script>
+
+</body>
+</html>

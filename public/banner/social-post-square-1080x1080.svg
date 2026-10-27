@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .font-display { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .font-mono { font-family: 'Space Mono', monospace; }
+      .font-body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .font-bold { font-weight: 700; }
+      .font-semibold { font-weight: 600; }
+      .font-medium { font-weight: 500; }
+    </style>
+    <linearGradient id="grad-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#17171c"/>
+      <stop offset="60%" stop-color="#0e1724"/>
+      <stop offset="100%" stop-color="#003c33"/>
+    </linearGradient>
+    <linearGradient id="grad-mesh" x1="0" y1="0" x2="1500" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#17171c"/>
+      <stop offset="50%" stop-color="#0c1d2e"/>
+      <stop offset="85%" stop-color="#003c33"/>
+      <stop offset="100%" stop-color="#17171c"/>
+    </linearGradient>
+    <linearGradient id="grad-coral" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff7759"/>
+      <stop offset="100%" stop-color="#ff937b"/>
+    </linearGradient>
+    <pattern id="arch-grid-dark" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#2a2a35" stroke-width="0.8" stroke-opacity="0.4"/>
+      <line x1="0" y1="0" x2="60" y2="60" stroke="#2a2a35" stroke-width="0.5" stroke-dasharray="2,4" stroke-opacity="0.25"/>
+    </pattern>
+    <pattern id="arch-grid-light" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#d9d9dd" stroke-width="0.8" stroke-opacity="0.6"/>
+      <line x1="0" y1="0" x2="60" y2="60" stroke="#d9d9dd" stroke-width="0.5" stroke-dasharray="2,4" stroke-opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#grad-mesh)"/>
+  <rect width="1080" height="1080" fill="url(#arch-grid-dark)"/>
+
+  <!-- 60-degree diagonal background lines -->
+  <line x1="700" y1="0" x2="1323" y2="1080" stroke="#ff7759" stroke-width="2" stroke-opacity="0.25"/>
+  <line x1="780" y1="0" x2="1403" y2="1080" stroke="#2a2a35" stroke-width="1.5"/>
+
+  <!-- Outer frame border -->
+  <rect x="40" y="40" width="1000" height="1000" rx="16" fill="none" stroke="#2a2a35" stroke-width="1.5"/>
+
+  <!-- Header: Logo & Badge -->
+  <g transform="translate(80, 80)">
+    
+    <g transform="translate(0, 0) scale(0.9)">
+      <g transform="scale(0.55)">
+        
+    <g class="symbol-white">
+      <path fill="#ffffff" fill-rule="evenodd" d="M 60 36 H 154 C 182.72 36 206 59.28 206 88 C 206 112.5 188.9 133.05 165.81 140 H 80 V 184 H 124 V 220 H 60 A 16 16 0 0 1 44 204 V 52 A 16 16 0 0 1 60 36 Z M 80 72 V 104 H 154 C 162.84 104 170 96.84 170 88 C 170 79.16 162.84 72 154 72 Z"/>
+      <path fill="#ff7759" d="M 165.81 140 L 212 220 H 165.81 L 119.62 140 Z"/>
+    </g>
+  
+      </g>
+      <text class="font-display font-bold" x="150" y="86" font-size="44" letter-spacing="-1" fill="#ffffff">
+        Creative <tspan fill="#ff7759">Realm</tspan>
+      </text>
+      <text class="font-mono" x="152" y="114" font-size="13" letter-spacing="2" fill="#93939f">
+        DESIGNS &amp; ENGINEERING
+      </text>
+    </g>
+  
+
+    <g transform="translate(560, 20)">
+      <rect width="280" height="34" rx="17" fill="#1e1e24" stroke="#2a2a35" stroke-width="1"/>
+      <circle cx="20" cy="17" r="4.5" fill="#ff7759"/>
+      <text class="font-mono font-medium" x="35" y="22" font-size="12" fill="#93939f" letter-spacing="1">
+        STUDIO SPEC // 2026
+      </text>
+    </g>
+  </g>
+
+  <!-- Main Headline Block -->
+  <g transform="translate(80, 260)">
+    <rect width="360" height="34" rx="6" fill="#1e1e24" stroke="#2a2a35" stroke-width="1"/>
+    <text class="font-mono font-bold" x="16" y="23" font-size="12.5" fill="#ff7759" letter-spacing="1.5">
+      CORE CONTRACTUAL GUARANTEE
+    </text>
+
+    <text class="font-display font-bold" x="0" y="100" font-size="54" letter-spacing="-1.5" fill="#ffffff">
+      Sub-Second Loading.
+    </text>
+    <text class="font-display font-bold" x="0" y="165" font-size="54" letter-spacing="-1.5" fill="#ffffff">
+      Zero Monthly Fees.
+    </text>
+    <text class="font-display font-bold" x="0" y="230" font-size="54" letter-spacing="-1.5" fill="#ff7759">
+      100% Code Ownership.
+    </text>
+  </g>
+
+  <!-- 3 Metric Cards Grid -->
+  <g transform="translate(80, 570)">
+    <!-- Card 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="280" height="200" rx="12" fill="#1e1e24" stroke="#2a2a35" stroke-width="1"/>
+      <text class="font-display font-bold" x="28" y="70" font-size="52" fill="#ff7759">
+        &lt; 0.8s
+      </text>
+      <text class="font-body font-semibold" x="28" y="115" font-size="17" fill="#ffffff">
+        Mobile Load Speed
+      </text>
+      <text class="font-body" x="28" y="145" font-size="13" fill="#93939f">
+        Verified with Google 98+
+      </text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(320, 0)">
+      <rect width="280" height="200" rx="12" fill="#1e1e24" stroke="#2a2a35" stroke-width="1"/>
+      <text class="font-display font-bold" x="28" y="70" font-size="52" fill="#ffffff">
+        +185%
+      </text>
+      <text class="font-body font-semibold" x="28" y="115" font-size="17" fill="#ffffff">
+        Inbound Bookings
+      </text>
+      <text class="font-body" x="28" y="145" font-size="13" fill="#93939f">
+        Verified client case study
+      </text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(640, 0)">
+      <rect width="280" height="200" rx="12" fill="#1e1e24" stroke="#2a2a35" stroke-width="1"/>
+      <text class="font-display font-bold" x="28" y="70" font-size="52" fill="#ff7759">
+        100%
+      </text>
+      <text class="font-body font-semibold" x="28" y="115" font-size="17" fill="#ffffff">
+        IP &amp; Code Ownership
+      </text>
+      <text class="font-body" x="28" y="145" font-size="13" fill="#93939f">
+        Zero platform lock-in
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Bar: CTA & Website -->
+  <g transform="translate(80, 840)">
+    <rect width="920" height="90" rx="12" fill="#1e1e24" stroke="#2a2a35" stroke-width="1"/>
+    
+    <g transform="translate(30, 28)">
+      <text class="font-body font-semibold" x="0" y="18" font-size="17" fill="#ffffff">
+        Ready for a website that out-ranks your competitors?
+      </text>
+      <text class="font-mono" x="0" y="42" font-size="13" fill="#93939f">
+        creativerealmdesigns.com • Discovery calls available
+      </text>
+    </g>
+
+    <g transform="translate(660, 20)">
+      <rect width="230" height="50" rx="8" fill="url(#grad-coral)"/>
+      <text class="font-display font-bold" x="24" y="32" font-size="15" fill="#17171c">
+        Book Consultation →
+      </text>
+    </g>
+  </g>
+</svg>

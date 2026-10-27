@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import ProposalDialog from "@/components/ProposalDialog";
 import BrandLogo from "@/components/BrandLogo";
+import { SocialIconButtonRow } from "@/components/SocialIcons";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -135,6 +136,16 @@ export default function Navbar() {
                   <a href="mailto:creativerealmdesignstudio@gmail.com" className="hover:text-[#17171c] min-h-[44px] flex items-center">
                     creativerealmdesignstudio@gmail.com
                   </a>
+                </div>
+
+                <div className="pt-2">
+                  <div className="text-[11px] font-mono text-[#75758a] uppercase tracking-wider mb-2.5">
+                    Official Studio Channels
+                  </div>
+                  <SocialIconButtonRow 
+                    className="flex gap-2.5" 
+                    buttonClassName="size-10 min-h-[40px] min-w-[40px] rounded-full bg-[#fafaf9] border border-[#e5e7eb] flex items-center justify-center text-[#17171c] hover:border-[#ff7759] hover:text-[#ff7759] hover:bg-white transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff7759]"
+                  />
                 </div>
               </div>
             </SheetContent>

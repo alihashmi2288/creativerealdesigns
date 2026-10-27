@@ -1,13 +1,7 @@
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
 import BrandLogo from "@/components/BrandLogo";
-
-const socialLinks = [
-  { label: "𝕏: Follow us on Twitter", icon: "𝕏", href: "https://x.com/CreativeRealm" },
-  { label: "in: Connect on LinkedIn", icon: "in", href: "https://linkedin.com/company/creative-realm-designs" },
-  { label: "be: View work on Behance", icon: "be", href: "https://behance.net/creativerealm" },
-  { label: "dr: See designs on Dribbble", icon: "dr", href: "https://dribbble.com/creativerealm" },
-];
+import { SocialIconButtonRow } from "@/components/SocialIcons";
 
 export default function Footer() {
   return (
@@ -29,20 +23,7 @@ export default function Footer() {
             <p className="text-[#93939f] text-sm leading-relaxed mb-6 max-w-sm">
               We design, build, and optimize high-converting websites for ambitious brands. Bespoke UI/UX, fast Next.js engineering, and organic Google SEO.
             </p>
-            <div className="flex gap-3">
-              {socialLinks.map(({ label, icon, href }) => (
-                <a 
-                  key={label} 
-                  href={href} 
-                  aria-label={label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="size-11 min-h-[44px] min-w-[44px] rounded-full bg-[#22222a] border border-[#33333d] flex items-center justify-center text-white text-xs font-medium hover:border-[#ff7759] hover:text-[#ff7759] transition-[border-color,color,background-color,transform] duration-150 ease-[var(--ease-out)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff7759]"
-                >
-                  <span aria-hidden="true">{icon}</span>
-                </a>
-              ))}
-            </div>
+            <SocialIconButtonRow />
           </div>
           
           <div className="lg:col-span-2 lg:ml-auto">

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600">
+  
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .font-display { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .font-mono { font-family: 'Space Mono', monospace; }
+      .font-body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .font-bold { font-weight: 700; }
+      .font-semibold { font-weight: 600; }
+      .font-medium { font-weight: 500; }
+    </style>
+    <linearGradient id="grad-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#17171c"/>
+      <stop offset="60%" stop-color="#0e1724"/>
+      <stop offset="100%" stop-color="#003c33"/>
+    </linearGradient>
+    <linearGradient id="grad-mesh" x1="0" y1="0" x2="1500" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#17171c"/>
+      <stop offset="50%" stop-color="#0c1d2e"/>
+      <stop offset="85%" stop-color="#003c33"/>
+      <stop offset="100%" stop-color="#17171c"/>
+    </linearGradient>
+    <linearGradient id="grad-coral" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff7759"/>
+      <stop offset="100%" stop-color="#ff937b"/>
+    </linearGradient>
+    <pattern id="arch-grid-dark" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#2a2a35" stroke-width="0.8" stroke-opacity="0.4"/>
+      <line x1="0" y1="0" x2="60" y2="60" stroke="#2a2a35" stroke-width="0.5" stroke-dasharray="2,4" stroke-opacity="0.25"/>
+    </pattern>
+    <pattern id="arch-grid-light" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#d9d9dd" stroke-width="0.8" stroke-opacity="0.6"/>
+      <line x1="0" y1="0" x2="60" y2="60" stroke="#d9d9dd" stroke-width="0.5" stroke-dasharray="2,4" stroke-opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <rect width="1920" height="600" fill="url(#grad-mesh)"/>
+  <rect width="1920" height="600" fill="url(#arch-grid-dark)"/>
+
+  <!-- 60-degree angled decorative lines -->
+  <line x1="1350" y1="0" x2="1696" y2="600" stroke="#ff7759" stroke-width="2" stroke-opacity="0.3"/>
+  <line x1="1420" y1="0" x2="1766" y2="600" stroke="#2a2a35" stroke-width="1.5"/>
+
+  <!-- Ambient glow -->
+  <circle cx="1500" cy="300" r="400" fill="#003c33" opacity="0.35" filter="blur(70px)"/>
+
+  <!-- Content -->
+  <g transform="translate(140, 70)">
+    
+    <g transform="translate(0, 0) scale(0.95)">
+      <g transform="scale(0.55)">
+        
+    <g class="symbol-white">
+      <path fill="#ffffff" fill-rule="evenodd" d="M 60 36 H 154 C 182.72 36 206 59.28 206 88 C 206 112.5 188.9 133.05 165.81 140 H 80 V 184 H 124 V 220 H 60 A 16 16 0 0 1 44 204 V 52 A 16 16 0 0 1 60 36 Z M 80 72 V 104 H 154 C 162.84 104 170 96.84 170 88 C 170 79.16 162.84 72 154 72 Z"/>
+      <path fill="#ff7759" d="M 165.81 140 L 212 220 H 165.81 L 119.62 140 Z"/>
+    </g>
+  
+      </g>
+      <text class="font-display font-bold" x="150" y="86" font-size="44" letter-spacing="-1" fill="#ffffff">
+        Creative <tspan fill="#ff7759">Realm</tspan>
+      </text>
+      <text class="font-mono" x="152" y="114" font-size="13" letter-spacing="2" fill="#93939f">
+        DESIGNS &amp; ENGINEERING
+      </text>
+    </g>
+  
+
+    <g transform="translate(0, 160)">
+      <rect width="360" height="32" rx="6" fill="#1e1e24" stroke="#2a2a35" stroke-width="1"/>
+      <text class="font-mono font-bold" x="14" y="21" font-size="12" fill="#ff7759" letter-spacing="1.5">
+        FULL-STACK STUDIO // ZERO PLATFORM FEES
+      </text>
+
+      <text class="font-display font-bold" x="0" y="90" font-size="52" letter-spacing="-1.5" fill="#ffffff">
+        Turn Your Website Into Your Highest-Performing Sales Engine.
+      </text>
+
+      <text class="font-body" x="0" y="140" font-size="20" fill="#93939f">
+        We build bespoke web platforms with guaranteed sub-second mobile speeds, high Google search rankings, and 100% IP ownership.
+      </text>
+
+      <!-- Chips and Action -->
+      <g transform="translate(0, 180)">
+        <rect width="250" height="52" rx="8" fill="url(#grad-coral)"/>
+        <text class="font-display font-bold" x="24" y="32" font-size="16" fill="#17171c">
+          Schedule Discovery Call →
+        </text>
+
+        <g transform="translate(280, 0)">
+          <rect width="180" height="52" rx="8" fill="#1e1e24" stroke="#2a2a35" stroke-width="1"/>
+          <text class="font-mono font-bold" x="16" y="32" font-size="13" fill="#ff7759">⚡ &lt; 800ms Speed</text>
+        </g>
+
+        <g transform="translate(480, 0)">
+          <rect width="190" height="52" rx="8" fill="#1e1e24" stroke="#2a2a35" stroke-width="1"/>
+          <text class="font-mono font-bold" x="16" y="32" font-size="13" fill="#ffffff">🔒 100% Code IP</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

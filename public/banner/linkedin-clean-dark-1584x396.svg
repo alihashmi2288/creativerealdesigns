@@ -1,0 +1,193 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .font-display { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .font-mono { font-family: 'Space Mono', monospace; }
+      .font-body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .font-bold { font-weight: 700; }
+      .font-semibold { font-weight: 600; }
+      .font-medium { font-weight: 500; }
+    </style>
+
+    <!-- Deep obsidian & brand gradient background -->
+    <linearGradient id="clean-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111115"/>
+      <stop offset="35%" stop-color="#17171c"/>
+      <stop offset="75%" stop-color="#0a1928"/>
+      <stop offset="100%" stop-color="#002d25"/>
+    </linearGradient>
+
+    <!-- Card surface gradient -->
+    <linearGradient id="clean-card-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#191922"/>
+      <stop offset="100%" stop-color="#131319"/>
+    </linearGradient>
+
+    <!-- Coral glow for card header -->
+    <linearGradient id="clean-card-top" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff7759"/>
+      <stop offset="60%" stop-color="#ff937b"/>
+      <stop offset="100%" stop-color="#282836"/>
+    </linearGradient>
+
+    <!-- Subtle radial glow around brand anchor -->
+    <radialGradient id="clean-ambient-glow" cx="84%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#ff7759" stop-opacity="0.12"/>
+      <stop offset="60%" stop-color="#ff7759" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#ff7759" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Precision architectural grid -->
+    <pattern id="clean-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#22222d" stroke-width="0.8" stroke-opacity="0.5"/>
+      <line x1="0" y1="0" x2="60" y2="60" stroke="#22222d" stroke-width="0.5" stroke-dasharray="2,4" stroke-opacity="0.25"/>
+    </pattern>
+  </defs>
+
+  <!-- Layer 1: Dark Obsidian Canvas & Ambient Glow -->
+  <rect width="1584" height="396" fill="url(#clean-bg)"/>
+  <rect width="1584" height="396" fill="url(#clean-grid)"/>
+  <rect width="1584" height="396" fill="url(#clean-ambient-glow)"/>
+
+  <!-- Layer 2: 60-degree Architectural Diagonal Rhythms -->
+  <line x1="1090" y1="0" x2="1318" y2="396" stroke="#ff7759" stroke-width="2" stroke-opacity="0.3"/>
+  <line x1="1135" y1="0" x2="1363" y2="396" stroke="#262634" stroke-width="1.2" stroke-opacity="0.6"/>
+  <line x1="1180" y1="0" x2="1408" y2="396" stroke="#1d1d26" stroke-width="1" stroke-dasharray="3,6" stroke-opacity="0.4"/>
+
+  <!-- 
+    ZONE 1: AVATAR CLEARANCE ZONE (X: 0 to 450)
+    Completely empty of text, labels, or logos.
+    When uploaded to LinkedIn, the user's circular profile photo sits at X: 48-368, Y: 220-396
+    with 100% zero interference.
+  -->
+
+  <!-- 
+    ZONE 2: CORE VALUE PROPOSITION (X: 450 to 990)
+    Spans exactly 540px width.
+    Ends at X = 990px, leaving 170px of pure negative space before Zone 3!
+  -->
+  <g transform="translate(450, 56)">
+    
+    <!-- Kicker / Production Badge -->
+    <g transform="translate(0, 0)">
+      <rect width="324" height="26" rx="5" fill="#1b1b22" stroke="#2e2e3c" stroke-width="1"/>
+      <circle cx="14" cy="13" r="3.5" fill="#ff7759"/>
+      <text class="font-mono font-bold" x="26" y="17.5" font-size="10.5" fill="#ff7759" letter-spacing="1.5">
+        STUDIO ARCHITECTURE // PRODUCTION SPEC
+      </text>
+    </g>
+
+    <!-- 
+      Display Headline: Explicit 2-Line Separation
+      Line 1 max width: 470px (ends at X ≈ 920px)
+      Line 2 max width: 440px (ends at X ≈ 890px)
+      ZERO OVERLAP with brand logo!
+    -->
+    <text class="font-display font-bold" x="0" y="74" font-size="38" letter-spacing="-1.2" fill="#ffffff">
+      Custom Web Engineering
+    </text>
+    <text class="font-display font-bold" x="0" y="120" font-size="38" letter-spacing="-1.2" fill="#ffffff">
+      For Ambitious Brands<tspan fill="#ff7759">.</tspan>
+    </text>
+
+    <!-- Editorial Subhead with Generous Breathing Room -->
+    <text class="font-body font-medium" x="0" y="162" font-size="15" fill="#a4a4b8">
+      Guaranteed sub-second speed • 100% intellectual property ownership
+    </text>
+    <text class="font-body" x="0" y="186" font-size="14" fill="#78788e">
+      Zero recurring platform lock-in • Built with Next.js 16 &amp; Bespoke Figma
+    </text>
+
+    <!-- Value Badges Row (Ends at X ≈ 990px) -->
+    <g transform="translate(0, 218)">
+      <!-- Badge 1: Next.js -->
+      <g transform="translate(0, 0)">
+        <rect width="156" height="32" rx="6" fill="#1a1a23" stroke="#2d2d3c" stroke-width="1"/>
+        <text class="font-mono font-medium" x="12" y="21" font-size="11" fill="#ffffff">⚡ Next.js 16 &amp; React</text>
+      </g>
+      <!-- Badge 2: Bespoke Figma -->
+      <g transform="translate(166, 0)">
+        <rect width="154" height="32" rx="6" fill="#1a1a23" stroke="#2d2d3c" stroke-width="1"/>
+        <text class="font-mono font-medium" x="12" y="21" font-size="11" fill="#ffffff">🎨 Bespoke Figma</text>
+      </g>
+      <!-- Badge 3: 100/100 CWV (Highlighted with brand Coral) -->
+      <g transform="translate(330, 0)">
+        <rect width="168" height="32" rx="6" fill="#1a1a23" stroke="#ff7759" stroke-width="1" stroke-opacity="0.5"/>
+        <text class="font-mono font-bold" x="12" y="21" font-size="11" fill="#ff7759">📈 100/100 CWV Score</text>
+      </g>
+      <!-- Badge 4: Zero Lock-in -->
+      <g transform="translate(508, 0)">
+        <rect width="140" height="32" rx="6" fill="#1a1a23" stroke="#2d2d3c" stroke-width="1"/>
+        <text class="font-mono font-medium" x="12" y="21" font-size="11" fill="#ffffff">🛡️ Zero Lock-in</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 
+    ZONE 3: BUFFER ZONE (X: 990 to 1160)
+    170px of pure negative space! Ensures that headline, badges, and subtext
+    never bleed into or crowd the brand identity on the right.
+  -->
+
+  <!-- 
+    ZONE 4: DEDICATED BRAND BEACON CARD (X: 1160 to 1516)
+    Width: 356px, Height: 284px.
+    Fully self-contained brand container with strict 1xX clear space around the logo mark.
+  -->
+  <g transform="translate(1160, 56)">
+    
+    <!-- Outer Architectural Card Shell -->
+    <rect width="356" height="284" rx="14" fill="url(#clean-card-bg)" stroke="#2a2a38" stroke-width="1.2"/>
+    
+    <!-- Top Accent Line -->
+    <path d="M 0 14 A 14 14 0 0 1 14 0 H 342 A 14 14 0 0 1 356 14" fill="none" stroke="url(#clean-card-top)" stroke-width="2"/>
+
+    <!-- Brand Identity Block (Guaranteed Clear Space) -->
+    <g transform="translate(28, 26)">
+      <!-- Master Architectural Monolith Symbol (Height: 48px) -->
+      <g transform="scale(0.1875)">
+        <path fill="#ffffff" fill-rule="evenodd" d="M 60 36 H 154 C 182.72 36 206 59.28 206 88 C 206 112.5 188.9 133.05 165.81 140 H 80 V 184 H 124 V 220 H 60 A 16 16 0 0 1 44 204 V 52 A 16 16 0 0 1 60 36 Z M 80 72 V 104 H 154 C 162.84 104 170 96.84 170 88 C 170 79.16 162.84 72 154 72 Z"/>
+        <path fill="#ff7759" d="M 165.81 140 L 212 220 H 165.81 L 119.62 140 Z"/>
+      </g>
+      
+      <!-- Wordmark -->
+      <text class="font-display font-bold" x="62" y="31" font-size="26" letter-spacing="-0.8" fill="#ffffff">
+        Creative <tspan fill="#ff7759">Realm</tspan>
+      </text>
+      <text class="font-mono font-medium" x="63" y="46" font-size="9" letter-spacing="2.2" fill="#88889a">
+        DESIGNS &amp; ENGINEERING
+      </text>
+    </g>
+
+    <!-- Structural Hairline Divider -->
+    <line x1="28" y1="88" x2="328" y2="88" stroke="#242432" stroke-width="1"/>
+
+    <!-- Core Speed Metric Box -->
+    <g transform="translate(28, 104)">
+      <rect width="300" height="38" rx="6" fill="#171720" stroke="#262634" stroke-width="1"/>
+      <circle cx="18" cy="19" r="3.5" fill="#ff7759"/>
+      <text class="font-mono font-bold" x="30" y="23.5" font-size="10.5" fill="#ffffff" letter-spacing="0.5">
+        CORE VELOCITY: <tspan fill="#ff7759">&lt; 800ms CWV</tspan>
+      </text>
+    </g>
+
+    <!-- Studio Status Indicator -->
+    <g transform="translate(28, 160)">
+      <circle cx="8" cy="8" r="4" fill="#4ade80"/>
+      <circle cx="8" cy="8" r="7.5" fill="#4ade80" fill-opacity="0.2"/>
+      <text class="font-mono font-bold" x="22" y="11.5" font-size="10.5" fill="#e0e0ea" letter-spacing="0.8">
+        ACCEPTING FOUNDER BUILDS
+      </text>
+    </g>
+
+    <!-- Terminal URL Bar -->
+    <g transform="translate(28, 192)">
+      <rect width="300" height="48" rx="8" fill="#1b1b25" stroke="#303042" stroke-width="1"/>
+      <text class="font-mono font-bold" x="16" y="29.5" font-size="11.5" fill="#ffffff">
+        creativerealmdesigns.com
+      </text>
+      <text class="font-display font-bold" x="272" y="30.5" font-size="16" fill="#ff7759">→</text>
+    </g>
+  </g>
+</svg>

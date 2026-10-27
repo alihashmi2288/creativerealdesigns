@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Mail, Clock, Gauge, Search, Compass, ShieldCheck } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import { SOCIAL_URLS } from "@/lib/socials";
+import { SocialCardGrid } from "@/components/SocialIcons";
 
 export const metadata: Metadata = {
   title: "Contact & Free Strategy Call",
@@ -56,6 +58,7 @@ const contactSchema = {
         "name": "Creative Realm Designs",
         "url": baseUrl,
         "email": "creativerealmdesignstudio@gmail.com",
+        "sameAs": SOCIAL_URLS,
       },
     },
     {
@@ -160,6 +163,16 @@ export default function ContactPage() {
                       creativerealmdesignstudio@gmail.com
                     </a>
                   </div>
+                </div>
+
+                <div className="pt-2">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[#003c33] font-mono text-xs uppercase tracking-widest font-semibold">
+                      Official Studio Channels
+                    </span>
+                    <span className="text-xs text-[#75758a] font-sans">Direct Inquiries &amp; Updates</span>
+                  </div>
+                  <SocialCardGrid />
                 </div>
               </div>
 

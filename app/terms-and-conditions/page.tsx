@@ -461,7 +461,7 @@ export default function TermsAndConditionsPage() {
                       7.4 Client Asset Warranties &amp; Portfolio Rights
                     </h3>
                     <p className="text-xs sm:text-sm text-[#616161] leading-relaxed">
-                      The Client warrants that all text, logos, trademarks, and photography provided to the Studio are owned by the Client or licensed with full rights for publication. Creative Realm Designs reserves the right to showcase non-confidential screenshots, design case studies, and performance benchmarks on our public website and agency channels (LinkedIn, X, Behance, Dribbble) unless a signed mutual NDA specifies otherwise.
+                      The Client warrants that all text, logos, trademarks, and photography provided to the Studio are owned by the Client or licensed with full rights for publication. Creative Realm Designs reserves the right to showcase non-confidential screenshots, design case studies, and performance benchmarks on our public website and agency channels (LinkedIn, X, Instagram, Facebook) unless a signed mutual NDA specifies otherwise.
                     </p>
                   </div>
                 </div>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1128 191" width="1128" height="191">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .font-display { font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .font-mono { font-family: 'Space Mono', monospace; }
+      .font-body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      .font-bold { font-weight: 700; }
+      .font-semibold { font-weight: 600; }
+      .font-medium { font-weight: 500; }
+    </style>
+
+    <linearGradient id="co-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#121216"/>
+      <stop offset="50%" stop-color="#17171c"/>
+      <stop offset="85%" stop-color="#071829"/>
+      <stop offset="100%" stop-color="#003c33"/>
+    </linearGradient>
+
+    <pattern id="co-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#22222c" stroke-width="0.75" stroke-opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base & Grid -->
+  <rect width="1128" height="191" fill="url(#co-grad)"/>
+  <rect width="1128" height="191" fill="url(#co-grid)"/>
+
+  <!-- 60-degree Diagonal Rhythm -->
+  <line x1="840" y1="0" x2="950" y2="191" stroke="#ff7759" stroke-width="1.5" stroke-opacity="0.25"/>
+  <line x1="870" y1="0" x2="980" y2="191" stroke="#2a2a38" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- SECTION 1: Brand Anchor (Safe from Avatar: x = 180 to 380) -->
+  <g transform="translate(180, 48)">
+    <!-- Standalone Master Symbol -->
+    <g transform="scale(0.164)">
+      <path fill="#ffffff" fill-rule="evenodd" d="M 60 36 H 154 C 182.72 36 206 59.28 206 88 C 206 112.5 188.9 133.05 165.81 140 H 80 V 184 H 124 V 220 H 60 A 16 16 0 0 1 44 204 V 52 A 16 16 0 0 1 60 36 Z M 80 72 V 104 H 154 C 162.84 104 170 96.84 170 88 C 170 79.16 162.84 72 154 72 Z"/>
+      <path fill="#ff7759" d="M 165.81 140 L 212 220 H 165.81 L 119.62 140 Z"/>
+    </g>
+    
+    <!-- Wordmark & Subtitle -->
+    <text class="font-display font-bold" x="52" y="27" font-size="22" letter-spacing="-0.7" fill="#ffffff">
+      Creative <tspan fill="#ff7759">Realm</tspan>
+    </text>
+    <text class="font-mono font-medium" x="53" y="42" font-size="9" letter-spacing="1.8" fill="#88889a">
+      DESIGNS &amp; ENGINEERING
+    </text>
+  </g>
+
+  <!-- Architectural Vertical Divider 1 -->
+  <line x1="395" y1="32" x2="395" y2="158" stroke="#252532" stroke-width="1"/>
+
+  <!-- SECTION 2: Value Proposition (Strictly bounded: x = 415 to 840) -->
+  <g transform="translate(415, 42)">
+    <text class="font-mono font-bold" x="0" y="14" font-size="10" fill="#ff7759" letter-spacing="1.2">
+      ⚡ NEXT.JS 16 // BESPOKE FIGMA
+    </text>
+    <text class="font-display font-bold" x="0" y="48" font-size="20" letter-spacing="-0.6" fill="#ffffff">
+      Ultra-Fast Websites Engineered To Convert
+    </text>
+    <text class="font-body font-medium" x="0" y="74" font-size="12" fill="#9595a8">
+      Sub-second Core Web Vitals • 100% IP ownership • Zero monthly lock-in
+    </text>
+  </g>
+
+  <!-- Architectural Vertical Divider 2 -->
+  <line x1="855" y1="32" x2="855" y2="158" stroke="#252532" stroke-width="1"/>
+
+  <!-- SECTION 3: Proof Metrics & URL (x = 875 to 1100) -->
+  <g transform="translate(875, 40)">
+    <!-- Speed Metric Pill -->
+    <rect width="215" height="34" rx="6" fill="#191922" stroke="#ff7759" stroke-width="1" stroke-opacity="0.4"/>
+    <text class="font-mono font-bold" x="14" y="22" font-size="11.5" fill="#ff7759">
+      ⚡ &lt; 800ms CWV Load
+    </text>
+
+    <!-- URL and Status -->
+    <g transform="translate(4, 52)">
+      <circle cx="6" cy="12" r="3.5" fill="#4ade80"/>
+      <text class="font-mono font-medium" x="16" y="15" font-size="9.5" fill="#88889a">
+        Open for Builds
+      </text>
+      <text class="font-mono font-bold" x="6" y="34" font-size="11.5" fill="#ffffff">
+        creativerealmdesigns.com
+      </text>
+    </g>
+  </g>
+</svg>

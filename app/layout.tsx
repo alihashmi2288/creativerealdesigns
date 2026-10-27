@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Link from "next/link";
+import { SOCIAL_URLS } from "@/lib/socials";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -81,6 +82,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@creativeRealm_",
+    creator: "@creativeRealm_",
     title: "Creative Realm Designs | Custom Fast Websites & Google SEO",
     description: "We build custom, high-speed websites and Google SEO systems that turn visitors into booked client inquiries. Sub-second load times and 100% code ownership.",
     images: ["/clean-design.png"],
@@ -123,6 +126,7 @@ const agencySchema = {
       "image": `${baseUrl}/clean-design.png`,
       "description": "We build custom, high-speed websites and Google SEO systems that turn search visitors into booked client inquiries. Sub-second mobile load times and 100% full code ownership.",
       "email": "creativerealmdesignstudio@gmail.com",
+      "sameAs": SOCIAL_URLS,
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

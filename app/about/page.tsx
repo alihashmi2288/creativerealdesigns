@@ -9,6 +9,8 @@ import {
   CheckCircle2, 
   ArrowRight
 } from "lucide-react";
+import { SOCIAL_URLS } from "@/lib/socials";
+import { SocialCardGrid } from "@/components/SocialIcons";
 
 export const metadata: Metadata = {
   title: "About Our Studio & Approach",
@@ -65,6 +67,7 @@ const aboutSchema = {
         "url": baseUrl,
         "logo": `${baseUrl}/brand/creative-realm-logo.svg`,
         "description": "Independent website design, web engineering, and Google SEO studio.",
+        "sameAs": SOCIAL_URLS,
       },
     },
     {
@@ -355,6 +358,24 @@ export default function AboutPage() {
                 </details>
               ))}
             </div>
+          </section>
+
+          {/* Follow Studio Channels */}
+          <section className="mt-16 sm:mt-24 mb-16 sm:mb-24 p-8 sm:p-12 rounded-[22px] bg-[#fafaf9] border border-[#e5e7eb]" aria-labelledby="about-social-heading">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+              <div>
+                <span className="text-[#003c33] font-mono text-xs uppercase tracking-widest mb-2 block font-semibold">
+                  Connect &amp; Follow
+                </span>
+                <h2 id="about-social-heading" className="text-2xl sm:text-3xl font-normal font-display text-[#17171c] tracking-tight">
+                  Follow Our Design Drops &amp; Studio Updates
+                </h2>
+              </div>
+              <p className="text-[#616161] text-xs sm:text-sm font-sans max-w-md">
+                We share design breakdowns, Next.js performance tips, and agency insights across our official verified profiles.
+              </p>
+            </div>
+            <SocialCardGrid />
           </section>
 
           {/* Final CTA */}

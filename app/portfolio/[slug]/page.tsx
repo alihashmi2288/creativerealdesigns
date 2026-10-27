@@ -4,6 +4,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle2, ArrowRight } from "lucide-react";
 import { projects } from "@/lib/projects";
+import { SOCIAL_URLS } from "@/lib/socials";
+import { SocialIconButtonRow } from "@/components/SocialIcons";
 
 export function generateStaticParams() {
   return projects.map((project) => ({
@@ -68,11 +70,13 @@ export default async function ProjectDetail({
       "@type": "Organization",
       "name": "Creative Realm Designs",
       "url": baseUrl,
+      "sameAs": SOCIAL_URLS,
     },
     "publisher": {
       "@type": "Organization",
       "name": "Creative Realm Designs",
       "url": baseUrl,
+      "sameAs": SOCIAL_URLS,
     },
     "mainEntityOfPage": `${baseUrl}/portfolio/${project.slug}`,
   };
@@ -192,6 +196,22 @@ export default async function ProjectDetail({
                   <span>Schedule Free Strategy Call</span>
                   <ArrowRight size={13} aria-hidden="true" />
                 </Link>
+              </div>
+
+              <div className="p-6 rounded-[16px] bg-[#fafaf9] border border-[#e5e7eb] space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[#003c33] font-mono text-xs uppercase tracking-widest font-semibold">
+                    Follow Studio Drops
+                  </span>
+                  <span className="text-[11px] text-[#75758a] font-sans">Live UI &amp; Insights</span>
+                </div>
+                <p className="text-[#616161] text-xs font-sans leading-relaxed">
+                  We publish ongoing case study breakdowns, UI animations, and design assets across our official profiles:
+                </p>
+                <SocialIconButtonRow 
+                  className="flex gap-2.5 pt-1"
+                  buttonClassName="size-10 min-h-[40px] min-w-[40px] rounded-full bg-white border border-[#e5e7eb] flex items-center justify-center text-[#17171c] hover:border-[#ff7759] hover:text-[#ff7759] transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ff7759]"
+                />
               </div>
             </aside>
           </div>

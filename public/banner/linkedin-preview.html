@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Realm — LinkedIn Banner Suite &amp; Live Safe-Zone Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0d11;
+      --surface: #14141a;
+      --card: #1a1a23;
+      --card-border: #282836;
+      --coral: #ff7759;
+      --coral-glow: rgba(255, 119, 89, 0.2);
+      --text: #ffffff;
+      --text-muted: #9595a8;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.5;
+      padding-bottom: 90px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #17171c 0%, #071829 60%, #003c33 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 50px 30px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 119, 89, 0.12);
+      border: 1px solid rgba(255, 119, 89, 0.35);
+      color: var(--coral);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      margin-bottom: 16px;
+    }
+
+    .badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background-color: var(--coral);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--coral);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+
+    h1 span { color: var(--coral); }
+
+    .desc {
+      font-size: 16.5px;
+      color: var(--text-muted);
+      max-width: 780px;
+    }
+
+    /* Sticky Simulator Controls */
+    .controls-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 13, 17, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 0;
+      margin-bottom: 40px;
+    }
+
+    .controls-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .toggle-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .toggle-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 22px;
+    }
+
+    .switch input { opacity: 0; width: 0; height: 0; }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--card);
+      border: 1px solid var(--card-border);
+      transition: .3s;
+      border-radius: 22px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: var(--text-muted);
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--coral);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(18px);
+      background-color: #111115;
+    }
+
+    /* Section Cards */
+    .banner-section {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 48px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .section-header {
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tag-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      background: rgba(255, 119, 89, 0.15);
+      color: var(--coral);
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 119, 89, 0.3);
+    }
+
+    .section-specs {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 16px;
+    }
+
+    /* Banner Stage & Simulator */
+    .banner-stage {
+      position: relative;
+      background: #09090c;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .banner-viewport {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      aspect-ratio: 1584 / 396;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .banner-viewport.company {
+      aspect-ratio: 1128 / 191;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Desktop Avatar Overlay Simulator */
+    .avatar-overlay {
+      position: absolute;
+      left: calc(48 / 1584 * 100%);
+      bottom: -15%;
+      width: calc(168 / 1584 * 100%);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      background: #17171c;
+      border: 4px solid #14141a;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .avatar-overlay.active {
+      opacity: 1;
+    }
+
+    .avatar-inner-icon {
+      font-size: 24px;
+      color: var(--coral);
+      font-weight: bold;
+    }
+
+    .avatar-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #ffffff;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* Mobile Crop Guide Overlays */
+    .crop-guide-left, .crop-guide-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: calc(200 / 1584 * 100%);
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 70, 70, 0.15),
+        rgba(255, 70, 70, 0.15) 10px,
+        rgba(255, 70, 70, 0.25) 10px,
+        rgba(255, 70, 70, 0.25) 20px
+      );
+      border-right: 1px dashed rgba(255, 100, 100, 0.6);
+      z-index: 8;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .crop-guide-right {
+      right: 0;
+      border-right: none;
+      border-left: 1px dashed rgba(255, 100, 100, 0.6);
+    }
+
+    .crop-guides.active .crop-guide-left,
+    .crop-guides.active .crop-guide-right {
+      opacity: 1;
+    }
+
+    /* Safe Zone Box Overlay */
+    .safe-box-overlay {
+      position: absolute;
+      left: calc(430 / 1584 * 100%);
+      top: calc(48 / 396 * 100%);
+      width: calc(1086 / 1584 * 100%);
+      height: calc(300 / 396 * 100%);
+      border: 2px dashed rgba(74, 222, 128, 0.7);
+      background: rgba(74, 222, 128, 0.05);
+      border-radius: 8px;
+      z-index: 7;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 8px 12px;
+    }
+
+    .safe-box-overlay.active {
+      opacity: 1;
+    }
+
+    .safe-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: #4ade80;
+      font-weight: 700;
+      background: rgba(17, 17, 21, 0.85);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Section Details & Actions */
+    .section-body {
+      padding: 24px 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .section-explanation {
+      max-width: 720px;
+      font-size: 14.5px;
+      color: var(--text-muted);
+    }
+
+    .section-explanation strong {
+      color: #ffffff;
+    }
+
+    .action-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--coral);
+      color: #111115;
+      border: 1px solid var(--coral);
+    }
+
+    .btn-primary:hover {
+      background: #ff8b71;
+      box-shadow: 0 4px 16px var(--coral-glow);
+    }
+
+    .btn-secondary {
+      background: #1d1d28;
+      color: #ffffff;
+      border: 1px solid var(--card-border);
+    }
+
+    .btn-secondary:hover {
+      background: #252534;
+      border-color: #404052;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="badge">OFFICIAL PRODUCTION REDESIGN</div>
+    <h1>Creative <span>Realm</span> — LinkedIn Banner Master Suite</h1>
+    <p class="desc">
+      Engineered to resolve the text-logo collision flaw. Strict mathematical zoning separates headline typography from the brand logo, fully preserving the $1 \times X$ clear space perimeter and clearing desktop avatar and mobile flank crop zones.
+    </p>
+  </div>
+</header>
+
+<div class="controls-bar">
+  <div class="container controls-inner">
+    <div class="toggle-group">
+      <label class="toggle-item">
+        <span class="switch">
+          <input type="checkbox" id="toggleAvatar" checked>
+          <span class="slider"></span>
+        </span>
+        <span>Simulate Desktop Profile Avatar</span>
+      </label>
+
+      <label class="toggle-item">
+        <span class="switch">
+          <input type="checkbox" id="toggleSafeZone" checked>
+          <span class="slider"></span>
+        </span>
+        <span>Show Universal Safe Zone Box</span>
+      </label>
+
+      <label class="toggle-item">
+        <span class="switch">
+          <input type="checkbox" id="toggleCropGuides">
+          <span class="slider"></span>
+        </span>
+        <span>Show Mobile Crop Danger Flanks</span>
+      </label>
+    </div>
+
+    <div>
+      <a href="index.html" class="btn btn-secondary">← View Full Banner Showcase</a>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- CUSTOM: Final LinkedIn Clean Banner (1512x256) -->
+  <section class="banner-section" style="border: 2px solid var(--coral); box-shadow: 0 0 24px rgba(255,119,89,0.25);">
+    <div class="section-header" style="background: rgba(255, 119, 89, 0.08);">
+      <div class="section-title">
+        final linkedin.png (1512 × 256 px)
+        <span class="tag-pill" style="background: var(--coral); color: #111115; font-weight: 700;">FINAL SPEC</span>
+      </div>
+      <div class="section-specs">
+        <span>1512 × 256 px</span>
+        <span>~5.9:1 Ratio</span>
+        <span>Clean Zero-Collision Master</span>
+      </div>
+    </div>
+
+    <div class="banner-stage">
+      <div class="banner-viewport crop-guides" style="aspect-ratio: 1512 / 256;">
+        <img src="final-linkedin-1512x256.png" alt="Final LinkedIn 1512x256 Banner" class="banner-img">
+        
+        <!-- Live Simulators -->
+        <div class="avatar-overlay active" style="left: calc(48 / 1512 * 100%); width: calc(140 / 1512 * 100%);">
+          <div class="avatar-inner-icon">CR</div>
+          <div class="avatar-label">Your Photo</div>
+        </div>
+        <div class="safe-box-overlay active" style="left: calc(400 / 1512 * 100%); width: calc(1070 / 1512 * 100%);">
+          <span class="safe-label">SAFE CONTENT ZONE</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <div class="section-explanation">
+        <strong>Custom 1512 × 256 px Clean Architecture:</strong> Scaled specifically to 1512 (w) × 256 (h) px with dedicated avatar clearance (X: 0 to 400px), balanced 2-line headline, 4 proof badges, and right-anchored brand beacon card (X: 1130px) with 124px of negative space buffer.
+      </div>
+      <div class="action-group">
+        <a href="final-linkedin-1512x256.svg" download="final-linkedin.svg" class="btn btn-secondary">Download Master SVG</a>
+        <a href="final-linkedin-1512x256.png" download="final linkedin.png" class="btn btn-primary">Download final linkedin.png</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP: Clean Dark Zero-Collision Master (1584x396) -->
+  <section class="banner-section" style="border: 2px solid var(--coral);">
+    <div class="section-header" style="background: rgba(255, 119, 89, 0.06);">
+      <div class="section-title">
+        The Clean Flagship Dark Banner (1584 × 396 px)
+        <span class="tag-pill" style="background: var(--coral); color: #111115; font-weight: 700;">CHOSEN MASTER SPEC</span>
+      </div>
+      <div class="section-specs">
+        <span>1584 × 396 px (1x)</span>
+        <span>3168 × 792 px (2x Retina)</span>
+        <span>Zero-Merging Geometry</span>
+      </div>
+    </div>
+
+    <div class="banner-stage">
+      <div class="banner-viewport crop-guides">
+        <img src="linkedin-clean-dark-1584x396.png" alt="Clean Flagship Dark Banner" class="banner-img">
+        
+        <!-- Live Simulators -->
+        <div class="avatar-overlay active">
+          <div class="avatar-inner-icon">CR</div>
+          <div class="avatar-label">Your Photo</div>
+        </div>
+        <div class="safe-box-overlay active">
+          <span class="safe-label">SAFE CONTENT ZONE</span>
+        </div>
+        <div class="crop-guide-left"></div>
+        <div class="crop-guide-right"></div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <div class="section-explanation">
+        <strong>Absolute Zero-Collision Architecture:</strong> Pure dark obsidian canvas (#111115 / #17171c) with brand mesh gradient and 60° architectural beam lines. The 2-line headline and proof chips sit securely between X: 450px and X: 990px. Over <strong>170px of pure negative space</strong> separates copy from the right brand beacon (X: 1160px). The avatar zone (X: 0 to 450px) is completely clear.
+      </div>
+      <div class="action-group">
+        <a href="linkedin-clean-dark-1584x396.svg" download class="btn btn-secondary">Download Master SVG</a>
+        <a href="linkedin-clean-dark-1584x396.png" download class="btn btn-secondary">Download Standard PNG</a>
+        <a href="linkedin-clean-dark-3168x792.png" download class="btn btn-primary">Download 2x Retina PNG</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VARIANT B: Open Floating Brand Signature -->
+  <section class="banner-section">
+    <div class="section-header">
+      <div class="section-title">
+        Clean Floating Brand Signature
+        <span class="tag-pill">OPEN MINIMALIST</span>
+      </div>
+      <div class="section-specs">
+        <span>1584 × 396 px</span>
+        <span>4:1 Ratio</span>
+        <span>Boundary-Free</span>
+      </div>
+    </div>
+
+    <div class="banner-stage">
+      <div class="banner-viewport crop-guides">
+        <img src="linkedin-clean-floating-1584x396.png" alt="Clean Floating Brand Banner" class="banner-img">
+        
+        <div class="avatar-overlay active">
+          <div class="avatar-inner-icon">CR</div>
+          <div class="avatar-label">Your Photo</div>
+        </div>
+        <div class="safe-box-overlay active">
+          <span class="safe-label">SAFE CONTENT ZONE</span>
+        </div>
+        <div class="crop-guide-left"></div>
+        <div class="crop-guide-right"></div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <div class="section-explanation">
+        <strong>Open Floating Layout:</strong> For an ultra-minimal look without card enclosures. Uses an architectural hairline vertical divider at X: 1070px with generous spacing around the brand mark, velocity pill, and domain callout.
+      </div>
+      <div class="action-group">
+        <a href="linkedin-clean-floating-1584x396.svg" download class="btn btn-secondary">Download Master SVG</a>
+        <a href="linkedin-clean-floating-1584x396.png" download class="btn btn-primary">Download High-Res PNG</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTION 1: Sovereign Architectural Dark (Flagship) -->
+  <section class="banner-section">
+    <div class="section-header">
+      <div class="section-title">
+        Option 1: Sovereign Architectural Dark
+        <span class="tag-pill">RECOMMENDED FLAGSHIP</span>
+      </div>
+      <div class="section-specs">
+        <span>1584 × 396 px</span>
+        <span>4:1 Ratio</span>
+        <span>Zero-Collision Architecture</span>
+      </div>
+    </div>
+
+    <div class="banner-stage">
+      <div class="banner-viewport crop-guides">
+        <img src="linkedin-personal-architectural-1584x396.png" alt="Option 1: Architectural Flagship" class="banner-img">
+        
+        <!-- Live Simulators -->
+        <div class="avatar-overlay active">
+          <div class="avatar-inner-icon">CR</div>
+          <div class="avatar-label">Your Photo</div>
+        </div>
+        <div class="safe-box-overlay active">
+          <span class="safe-label">SAFE CONTENT ZONE</span>
+        </div>
+        <div class="crop-guide-left"></div>
+        <div class="crop-guide-right"></div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <div class="section-explanation">
+        <strong>Design Rationale:</strong> Two-line headline strictly bounded between x: 430 and x: 920. Brand logo is isolated in its own dedicated architectural glass card on the right (x: 1140 to 1516), creating over <strong>220px of clear space</strong>. Profile photo overlaps empty architectural grid with zero text obstruction.
+      </div>
+      <div class="action-group">
+        <a href="linkedin-personal-architectural-1584x396.svg" download class="btn btn-secondary">Download Master SVG</a>
+        <a href="linkedin-personal-architectural-1584x396.png" download class="btn btn-primary">Download High-Res PNG</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OPTION 2: Modern Monolith Glass & 3D Depth -->
+  <section class="banner-section">
+    <div class="section-header">
+      <div class="section-title">
+        Option 2: Modern Monolith Glass &amp; 3D Depth
+        <span class="tag-pill">3D DEPTH</span>
+      </div>
+      <div class="section-specs">
+        <span>1584 × 396 px</span>
+        <span>4:1 Ratio</span>
+        <span>Volumetric Caustics</span>
+      </div>
+    </div>
+
+    <div class="banner-stage">
+      <div class="banner-viewport crop-guides">
+        <img src="linkedin-personal-monolith-1584x396.png" alt="Option 2: Monolith 3D Depth" class="banner-img">
+        
+        <div class="avatar-overlay active">
+          <div class="avatar-inner-icon">CR</div>
+          <div class="avatar-label">Your Photo</div>
+        </div>
+        <div class="safe-box-overlay active">
+          <span class="safe-label">SAFE CONTENT ZONE</span>
+        </div>
+        <div class="crop-guide-left"></div>
+        <div class="crop-guide-right"></div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <div class="section-explanation">
+        <strong>Design Rationale:</strong> Integrates sub-agent-generated 3D architectural dark obsidian slabs and glowing coral edge caustics beneath a high-contrast dark scrim. Frosted glassmorphism command cards elevate tech badges with guaranteed WCAG AAA contrast.
+      </div>
+      <div class="action-group">
+        <a href="linkedin-personal-monolith-1584x396.svg" download class="btn btn-secondary">Download Master SVG</a>
+        <a href="linkedin-personal-monolith-1584x396.png" download class="btn btn-primary">Download High-Res PNG</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OPTION 3: Kinetic Studio Editorial -->
+  <section class="banner-section">
+    <div class="section-header">
+      <div class="section-title">
+        Option 3: Kinetic Studio Editorial
+        <span class="tag-pill">EDITORIAL</span>
+      </div>
+      <div class="section-specs">
+        <span>1584 × 396 px</span>
+        <span>4:1 Ratio</span>
+        <span>3 Metric Pillars</span>
+      </div>
+    </div>
+
+    <div class="banner-stage">
+      <div class="banner-viewport crop-guides">
+        <img src="linkedin-personal-editorial-1584x396.png" alt="Option 3: Kinetic Editorial" class="banner-img">
+        
+        <div class="avatar-overlay active">
+          <div class="avatar-inner-icon">CR</div>
+          <div class="avatar-label">Your Photo</div>
+        </div>
+        <div class="safe-box-overlay active">
+          <span class="safe-label">SAFE CONTENT ZONE</span>
+        </div>
+        <div class="crop-guide-left"></div>
+        <div class="crop-guide-right"></div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <div class="section-explanation">
+        <strong>Design Rationale:</strong> Ultra-clean editorial agency aesthetic. Anchors 3 high-impact quantitative proof points (&lt;800ms CWV, 100% IP, $0/mo fees) beside a framed brand terminal block. High-contrast typography optimized for rapid mobile scrolling.
+      </div>
+      <div class="action-group">
+        <a href="linkedin-personal-editorial-1584x396.svg" download class="btn btn-secondary">Download Master SVG</a>
+        <a href="linkedin-personal-editorial-1584x396.png" download class="btn btn-primary">Download High-Res PNG</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- COMPANY COVER: 3-Zone Architecture -->
+  <section class="banner-section">
+    <div class="section-header">
+      <div class="section-title">
+        LinkedIn Company Page Cover (3-Zone Optimized)
+        <span class="tag-pill">COMPANY COVER</span>
+      </div>
+      <div class="section-specs">
+        <span>1128 × 191 px</span>
+        <span>~6:1 Ratio</span>
+        <span>Fixed 80px Overlap Bug</span>
+      </div>
+    </div>
+
+    <div class="banner-stage">
+      <div class="banner-viewport company">
+        <img src="linkedin-company-1128x191.png" alt="LinkedIn Company Cover" class="banner-img">
+      </div>
+    </div>
+
+    <div class="section-body">
+      <div class="section-explanation">
+        <strong>Design Rationale:</strong> Fixes the bug in the previous version where middle text was placed at x: 480 while the logo reached x: 560. Re-architected into 3 distinct non-overlapping columns separated by architectural hairline dividers: Brand Anchor (x: 180-380), Value Proposition (x: 415-840), and Metric Pill &amp; URL (x: 875-1100).
+      </div>
+      <div class="action-group">
+        <a href="linkedin-company-1128x191.svg" download class="btn btn-secondary">Download Master SVG</a>
+        <a href="linkedin-company-1128x191.png" download class="btn btn-primary">Download High-Res PNG</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const toggleAvatar = document.getElementById('toggleAvatar');
+  const toggleSafeZone = document.getElementById('toggleSafeZone');
+  const toggleCropGuides = document.getElementById('toggleCropGuides');
+
+  const avatars = document.querySelectorAll('.avatar-overlay');
+  const safeBoxes = document.querySelectorAll('.safe-box-overlay');
+  const cropGuides = document.querySelectorAll('.banner-viewport.crop-guides');
+
+  toggleAvatar.addEventListener('change', () => {
+    avatars.forEach(av => av.classList.toggle('active', toggleAvatar.checked));
+  });
+
+  toggleSafeZone.addEventListener('change', () => {
+    safeBoxes.forEach(sb => sb.classList.toggle('active', toggleSafeZone.checked));
+  });
+
+  toggleCropGuides.addEventListener('change', () => {
+    cropGuides.forEach(cg => cg.classList.toggle('active', toggleCropGuides.checked));
+  });
+</script>
+
+</body>
+</html>
